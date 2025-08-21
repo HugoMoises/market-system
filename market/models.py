@@ -3,9 +3,9 @@ from django.db import models
 # Create your models here.
 class User(models.Model):
     TYPES_USER = [
-        ('owner', 'Owner')
-        ('manager', 'Manager')
-        ('cashier', 'Cashier')
+        ('owner', 'Owner'),
+        ('manager', 'Manager'),
+        ('cashier', 'Cashier'),
     ]
 
     username = models.CharField(max_length=100)
@@ -14,7 +14,7 @@ class User(models.Model):
     tipo = models.CharField(max_length=15, choices=TYPES_USER)
 
     def __str__(self):
-        return f"{self.username} - {self.get_tipo_sisplay()}"
+        return f"{self.username} - {self.get_tipo_display()}"
     
 class Client(models.Model):
     id = models.AutoField(primary_key=True)
